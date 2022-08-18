@@ -53,7 +53,7 @@ export const useHttpGet = defineStore('httpGet', {
   actions: {
     async request() {
       const { data, pending, error, refresh } = await useFetch(aURL)
-      if (error) {
+      if (error.value) {
         this.isSuccess = false
         return
       }
