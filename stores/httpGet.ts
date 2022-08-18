@@ -19,6 +19,7 @@ export interface Get {
   url: string
 }
 
+// TODO: Mock data if api is not yet ready
 const defaultGet: Get = {
   args: {},
   headers: {
@@ -58,6 +59,7 @@ export const useHttpGet = defineStore('httpGet', {
         return
       }
       const value = data.value
+      // TODO: mapping more, or find a way mapping entire data structure
       this.Accept = value.headers.Accept
     },
   },
