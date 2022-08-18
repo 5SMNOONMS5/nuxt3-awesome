@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import { capitalize } from '~/utils/str'
+import {useHttpGet} from "~/stores/httpGet";
 
 // composable
 const { t } = useLang()
+
+const get = useHttpGet()
+get.request()
 
 // compiler macro
 definePageMeta({
@@ -22,6 +26,7 @@ useHead(() => ({
 <template>
   <PageWrapper>
     <PageHeader>
+      <h1> 從 api 拿到資料 {{ get.getAccept }}</h1>
       <PageTitle :text="$t('pages.blank.title')" class="capitalize" />
     </PageHeader>
     <PageBody>
